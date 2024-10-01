@@ -1,0 +1,124 @@
+datasets:
+  raw:
+    sales:
+      type: ds
+      format: csv
+      uri: ${core.data_base_path}/raw/data/sales_data.csv
+      driver_params: {}
+
+    google:
+      type: ds
+      format: csv
+      uri: ${core.data_base_path}/raw/data/google_search_data.csv
+      driver_params: {}
+
+    Media:
+      type: ds
+      format: csv
+      uri: ${core.data_base_path}/raw/data/social_media_data.csv
+      driver_params: {}
+
+    Theme:
+      type: ds
+      format: csv
+      uri: ${core.data_base_path}/raw/data/Theme_list.csv
+      driver_params: {}
+
+    Product:
+      type: ds
+      format: csv
+      uri: ${core.data_base_path}/raw/data/Theme_product_list.csv
+      driver_params: {}
+
+    Manufacturer:
+      type: ds
+      format: csv
+      uri: ${core.data_base_path}/raw/data/product_manufacturer_list.csv
+      driver_params: {}
+
+
+  cleaned:
+    google:
+      type: ds
+      format: parquet
+      uri: ${core.data_base_path}/cleaned/data/google.parquet
+      driver_params: {}
+
+    Product:
+      type: ds
+      format: parquet
+      uri: ${core.data_base_path}/cleaned/data/Product.parquet
+      driver_params: {}
+
+    sales:
+      type: ds
+      format: parquet
+      uri: ${core.data_base_path}/cleaned/data/sales.parquet
+      driver_params: {}
+
+    Media:
+      type: ds
+      format: parquet
+      uri: ${core.data_base_path}/cleaned/data/Media.parquet
+      driver_params: {}
+
+    Theme:
+      type: ds
+      format: parquet
+      uri: ${core.data_base_path}/cleaned/data/Theme.parquet
+      driver_params: {}
+
+    Manufacturer:
+      type: ds
+      format: parquet
+      uri: ${core.data_base_path}/cleaned/data/Manufacturer.parquet
+      driver_params: {}
+
+  processed:
+    sales:
+      type: ds
+      format: parquet
+      uri: ${core.data_base_path}/processed/sales/sales.parquet
+      driver_params: {}
+
+  train:
+    sales:
+      features:
+        type: ds
+        format: parquet
+        uri: ${core.data_base_path}/train/sales/features.parquet
+        driver_params:
+          save:
+            index: False
+      target:
+        type: ds
+        format: parquet
+        uri: ${core.data_base_path}/train/sales/target.parquet
+        driver_params:
+          save:
+            index: False
+  test:
+    sales:
+      features:
+        type: ds
+        format: parquet
+        uri: ${core.data_base_path}/test/sales/features.parquet
+        driver_params:
+          save:
+            index: False
+      target:
+        type: ds
+        format: parquet
+        uri: ${core.data_base_path}/test/sales/target.parquet
+        driver_params:
+          save:
+            index: False
+  score:
+    sales:
+      output:
+        type: ds
+        format: parquet
+        uri: ${core.data_base_path}/test/sales/scored_output.parquet
+        driver_params:
+          save:
+            index: False
